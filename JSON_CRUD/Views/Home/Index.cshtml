@@ -1,0 +1,168 @@
+﻿@model List<JSON_CRUD.Models.Inventory>
+@{
+    ViewData["Title"] = "Inventory";
+}
+
+
+@* ----------- Inventory Details ----------- *@
+<label id="lbl1">View Inventory</label>
+<div class="table-responsive">
+    <table class="taskList" style="WIDTH: 600px; BORDER-COLLAPSE: collapse"
+           bordercolor="#bbbbbb" cellspacing="0" cellpadding="3" align="center" border="1">
+        <thead>
+            <tr>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Id</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Name</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">ExpiryDate</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Price</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Quantity</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="WIDTH: 20%; TEXT-ALIGN: center"> @item.Id<br /></td>
+                    <td style="WIDTH: 20%; TEXT-ALIGN: center"> @item.Name<br /></td>
+                    <td style="WIDTH: 20%; TEXT-ALIGN: center"> @item.Expirydate<br /></td>
+                    <td style="WIDTH: 20%; TEXT-ALIGN: center"> @item.Price<br /></td>
+                    <td style="WIDTH: 20%; TEXT-ALIGN: center"> @item.Quantity<br /></td>
+                    <td style="WIDTH: 20%; TEXT-ALIGN: center"> @item.Note<br /></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+    </br>
+    </br>
+@* ----------- Select by ID ----------- *@
+                 Select by Id
+@{
+    JSON_CRUD.Models.Inventory inventory = new JSON_CRUD.Models.Inventory();
+
+    inventory = Model.FirstOrDefault(x => x.Id == 100);
+    <div class="table-responsive"></div>
+    <table class="taskList" style="WIDTH: 600px; BORDER-COLLAPSE: collapse"
+           bordercolor="#bbbbbb" cellspacing="0" cellpadding="3" align="center" border="1">
+        <thead>
+            <tr>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Id</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Name</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">ExpiryDate</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Price</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Quantity</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Note</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="WIDTH: 20%; TEXT-ALIGN: center"> @inventory.Id</td>
+                <td style="WIDTH: 20%; TEXT-ALIGN: center"> @inventory.Name</td>
+                <td style="WIDTH: 20%; TEXT-ALIGN: center"> @inventory.Expirydate</td>
+                <td style="WIDTH: 20%; TEXT-ALIGN: center"> @inventory.Price</td>
+                <td style="WIDTH: 20%; TEXT-ALIGN: center"> @inventory.Quantity</td>
+                <td style="WIDTH: 20%; TEXT-ALIGN: center"> @inventory.Note</td>
+            </tr>
+        </tbody>
+    </table>
+
+}
+            </br>
+            </br>
+            </br>
+
+@* ----------- Add/Update new Inventory ----------- *@
+<label>Add or Update Inventory</label>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    JSON_CRUD.Models.Inventory inventories = new JSON_CRUD.Models.Inventory();
+    <table class="taskList" style="WIDTH: 600px; BORDER-COLLAPSE: collapse"
+           bordercolor="#bbbbbb" cellspacing="0" cellpadding="3" align="center" border="1">
+        <thead>
+            <tr>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Id</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Name</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">ExpiryDate</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Price</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Quantity</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Note</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <input type="text" asp-for="@inventories.Id" name="Id" />
+                    <br />
+                </td>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <input type="text" asp-for="@inventories.Name" name="Name" />
+                    <br />
+                </td>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <input type="text" asp-for="@inventories.Price" name="Price" />
+                    <br />
+                </td>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <input type="text" asp-for="@inventories.Note" name="Note" />
+                    <br />
+                </td>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <input type="text" asp-for="@inventories.Quantity" name="Quantity" />
+                    <br />
+                </td>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <input type="text" asp-for="@inventories.Expirydate" name="Expirydate" />
+                    <br />
+                </td>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <button type="submit">Add/Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+}
+
+@* ----------- Delete Inventory ----------- *@
+<label>Delete Inventory</label>
+@using (Html.BeginForm("Delete", "Inventory", FormMethod.Post))
+{
+    JSON_CRUD.Models.Inventory inventoryrecord = new JSON_CRUD.Models.Inventory();
+
+    <table class="taskList" style="WIDTH: 600px; BORDER-COLLAPSE: collapse"
+           bordercolor="#bbbbbb" cellspacing="0" cellpadding="3" align="center" border="1">
+        <thead>
+            <tr>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Id</th>
+                <th style="WIDTH: 20%; BACKGROUND-COLOR: #d7e4ef; TEXT-ALIGN: center" scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <input type="text" asp-for="@inventoryrecord.Id" name="Id" />
+                    <br />
+                </td>
+                <td style="WIDTH: 20%; TEXT-ALIGN: center">
+                    <button type="submit" name="submit">Delete</button>
+                    <br />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+}
+

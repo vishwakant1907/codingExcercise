@@ -1,0 +1,26 @@
+[
+  {
+    "id": 100,
+    "name": "Corosin",
+    "price": 20.00,
+    "quantity": 10,
+    "expirydate": "20/01/2020",
+    "note": ""
+  },
+  {
+    "id": 101,
+    "name": "Disprine",
+    "price": 30.00,
+    "quantity": 10,
+    "expirydate": "31/07/2020",
+    "note": ""
+  },
+  {
+    "id": 102,
+    "name": "Asprine",
+    "price": 40.00,
+    "quantity": 10,
+    "expirydate": "25/09/2020",
+    "note": ""
+  }
+]
